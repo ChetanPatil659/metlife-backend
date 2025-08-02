@@ -23,7 +23,7 @@ export async function addInfo(req, res) {
             employeeCode,
             mobile,
             consent,
-            channel:ref,
+            channel: ref,
           });
         }
         break;
@@ -33,7 +33,7 @@ export async function addInfo(req, res) {
           employeeCode,
           mobile,
           consent,
-          channel:ref,
+          channel: ref,
         });
         break;
       case "jkb":
@@ -42,7 +42,7 @@ export async function addInfo(req, res) {
           employeeCode,
           mobile,
           consent,
-          channel:ref,
+          channel: ref,
         });
         break;
       case "kbl":
@@ -51,7 +51,7 @@ export async function addInfo(req, res) {
           employeeCode,
           mobile,
           consent,
-          channel:ref,
+          channel: ref,
         });
         break;
       case "psf":
@@ -60,7 +60,7 @@ export async function addInfo(req, res) {
           employeeCode,
           mobile,
           consent,
-          channel:ref,
+          channel: ref,
         });
         break;
       case "social_media":
@@ -69,7 +69,16 @@ export async function addInfo(req, res) {
           city,
           mobile,
           consent,
-          channel:ref,
+          channel: ref,
+        });
+        break;
+      default:
+        user = await User.create({
+          name,
+          city,
+          mobile,
+          consent,
+          channel: ref,
         });
         break;
     }
@@ -120,7 +129,9 @@ export async function addQuiz(req, res) {
       lifeExpectancy,
       retirementAge
     ) {
-      const yearlyInvestment = (corpusRequired * growthRate) / (Math.pow(1 + growthRate, lifeExpectancy - retirementAge) - 1);
+      const yearlyInvestment =
+        (corpusRequired * growthRate) /
+        (Math.pow(1 + growthRate, lifeExpectancy - retirementAge) - 1);
       return yearlyInvestment;
     }
 
@@ -144,8 +155,12 @@ export async function addQuiz(req, res) {
       retirementAge
     );
 
-    const yearly_investment = calculateYearlyInvestment(retirement_corpus, growth_rate, life_expectancy, retirementAge);
-
+    const yearly_investment = calculateYearlyInvestment(
+      retirement_corpus,
+      growth_rate,
+      life_expectancy,
+      retirementAge
+    );
 
     user.yearlyInvestment = yearly_investment.toFixed(2);
     user.retirementCorpus = retirement_corpus.toFixed(2);
