@@ -78,7 +78,7 @@ export async function addInfo(req, res) {
           city,
           mobile,
           consent,
-          channel: ref,
+          channel: "social_media",
         });
         break;
     }
