@@ -190,7 +190,7 @@ export async function getRecommendation(req, res) {
         response.user = user;
         break;
     }
-    return res.status(200).json({user,response});
+    return res.status(200).json(response);
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
