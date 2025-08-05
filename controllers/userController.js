@@ -2,6 +2,9 @@ import User from "../models/User.js";
 
 export async function addInfo(req, res) {
   try {
+    console.log("========= /add-info =========")
+    console.log("req.query", req.query);
+    console.log("req.body", req.body);
     const { ref } = req.query;
     const { name, city, employeeCode, buisnessCode, mobile, consent, type } =
       req.body;
@@ -90,6 +93,9 @@ export async function addInfo(req, res) {
 
 export async function addQuiz(req, res) {
   try {
+    console.log("========= /add-quiz =========")
+    console.log("req.query", req.query);
+    console.log("req.body", req.body);
     const { id } = req.query;
     const { age, retirementAge, monthlyExpense } = req.body;
     const user = await User.findByIdAndUpdate(
@@ -175,7 +181,11 @@ export async function addQuiz(req, res) {
 }
 
 export async function getRecommendation(req, res) {
+
   try {
+    console.log("========= /get-recommendation =========")
+    console.log("req.query", req.query);
+    console.log("req.body", req.body);
     const { id } = req.query;
     const user = await User.findById(id);
     let response = {};
