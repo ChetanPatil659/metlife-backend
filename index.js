@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 8001;
 
 // CORS Configuration - Allow all origins with proper security headers
 const corsOptions = {
-  origin: '*', // Allow all origins
+  origin: ["http://localhost:5173", "https://metlife-frontend.vercel.app", "https://customerconnects.in"], // Allow all origins
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept'],
   credentials: false, // Set to false when origin is '*'
