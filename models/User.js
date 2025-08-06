@@ -55,6 +55,18 @@ const userSchema = new mongoose.Schema(
     futureValue: {
       type: Number,
     },
+    utm: {
+      type: String,
+      default: null,
+    },
+    utm_source: {
+      type: String,
+      default: null,
+    },
+    utm_campaign: {
+      type: String,
+      default: null,
+    },
   },
   {
     timestamps: true,

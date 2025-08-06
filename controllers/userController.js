@@ -5,7 +5,7 @@ export async function addInfo(req, res) {
     console.log("========= /add-info =========")
     console.log("req.query", req.query);
     console.log("req.body", req.body);
-    const { ref } = req.query;
+    const { ref, utm, utm_source, utm_campaign } = req.query;
     const { name, city, employeeCode, buisnessCode, mobile, consent, type } =
       req.body;
     let user;
@@ -19,6 +19,9 @@ export async function addInfo(req, res) {
             mobile,
             consent,
             channel: ref,
+            utm,
+            utm_source,
+            utm_campaign,
           });
         } else {
           user = await User.create({
@@ -27,6 +30,9 @@ export async function addInfo(req, res) {
             mobile,
             consent,
             channel: ref,
+            utm,
+            utm_source,
+            utm_campaign,
           });
         }
         break;
@@ -37,6 +43,9 @@ export async function addInfo(req, res) {
           mobile,
           consent,
           channel: ref,
+          utm,
+          utm_source,
+          utm_campaign,
         });
         break;
       case "jkb":
@@ -46,6 +55,9 @@ export async function addInfo(req, res) {
           mobile,
           consent,
           channel: ref,
+          utm,
+          utm_source,
+          utm_campaign,
         });
         break;
       case "kbl":
@@ -55,6 +67,9 @@ export async function addInfo(req, res) {
           mobile,
           consent,
           channel: ref,
+          utm,
+          utm_source,
+          utm_campaign,
         });
         break;
       case "psf":
@@ -64,6 +79,9 @@ export async function addInfo(req, res) {
           mobile,
           consent,
           channel: ref,
+          utm,
+          utm_source,
+          utm_campaign,
         });
         break;
       case "social_media":
@@ -73,6 +91,9 @@ export async function addInfo(req, res) {
           mobile,
           consent,
           channel: "social_media",
+          utm,
+          utm_source,
+          utm_campaign,
         });
         break;
       default:
@@ -82,6 +103,9 @@ export async function addInfo(req, res) {
           mobile,
           consent,
           channel: "social_media",
+          utm,
+          utm_source,
+          utm_campaign,
         });
         break;
     }
