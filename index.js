@@ -30,6 +30,10 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 app.use('/api', apiRoutes);
 
+app.get('/',(req,res)=>{
+  res.send("Heee There")
+})
+
 // Health check route
 app.get('/health', (req, res) => {
   res.status(200).json({ 
