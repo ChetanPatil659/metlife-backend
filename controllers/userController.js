@@ -21,7 +21,6 @@ export async function addInfo(req, res) {
             channel: ref,
             utm,
             utm_source,
-            utm_campaign,
           });
         } else {
           user = await User.create({
@@ -32,7 +31,6 @@ export async function addInfo(req, res) {
             channel: ref,
             utm,
             utm_source,
-            utm_campaign,
           });
         }
         break;
