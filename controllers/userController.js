@@ -12,7 +12,7 @@ export async function addInfo(req, res) {
 
     switch (ref) {
       case "agency":
-        if (type === "buisnessCode") {
+        if (type === "businessCode") {
           user = await User.create({
             name,
             buisnessCode,
