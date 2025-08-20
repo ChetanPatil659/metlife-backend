@@ -15,7 +15,7 @@ export async function addInfo(req, res) {
         if (type === "businessCode") {
           user = await User.create({
             name,
-            businessCode,
+            buisnessCode: businessCode,
             mobile,
             consent,
             channel: ref,
