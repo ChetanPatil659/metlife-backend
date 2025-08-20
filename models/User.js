@@ -73,11 +73,6 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-// Index for better query performance
-userSchema.index({ mobile: 1 });
-userSchema.index({ buisnessCode: 1 });
-userSchema.index({ employeeCode: 1 });
-
 const User = mongoose.model("User", userSchema);
 
 export default User;
