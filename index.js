@@ -5,6 +5,32 @@ import mongoose from 'mongoose'; // Added missing import for mongoose
 import connectDB from './config/database.js';
 import apiRoutes from './routes/api.js';
 
+/**
+ * Start the server with enhanced error handling
+ */
+const startServer = async () => {
+  try {
+    console.log('🚀 Starting PNB MetLife Backend Server...');
+    console.log(`📋 Environment: ${process.env.NODE_ENV || 'development'}`);
+    console.log(`🔧 Port: ${PORT}`);
+    
+    // Connect to database
+    await connectDB();
+    
+    app.listen(PORT, '0.0.0.0', () => {
+      console.log('✅ Server started successfully!');
+      console.log(`🌐 Server URL: http://localhost:${PORT}`);
+      console.log(`🏥 Health check: http://localhost:${PORT}/health`);
+      console.log(`📚 API Documentation: http://localhost:${PORT}/api`);
+      console.log('📝 Press Ctrl+C to stop the server');
+    });
+  } catch (error) {
+    console.error('❌ Failed to start server:', error.message);
+    console.log('💡 Please check your configuration and try again');
+    process.exit(1);
+  }
+};
+
 // Load environment variables
 dotenv.config();
 
@@ -19,6 +45,8 @@ const corsOptions = {
   credentials: false, // Set to false when origin is '*'
   optionsSuccessStatus: 200 // Some legacy browsers choke on 204
 };
+
+startServer();
 
 // Middleware
 app.use(cors(corsOptions));
@@ -60,33 +88,5 @@ app.use((err, req, res, next) => {
     message: err.message 
   });
 });
-
-/**
- * Start the server with enhanced error handling
- */
-const startServer = async () => {
-  try {
-    console.log('🚀 Starting PNB MetLife Backend Server...');
-    console.log(`📋 Environment: ${process.env.NODE_ENV || 'development'}`);
-    console.log(`🔧 Port: ${PORT}`);
-    
-    // Connect to database
-    await connectDB();
-    
-    app.listen(PORT, '0.0.0.0', () => {
-      console.log('✅ Server started successfully!');
-      console.log(`🌐 Server URL: http://localhost:${PORT}`);
-      console.log(`🏥 Health check: http://localhost:${PORT}/health`);
-      console.log(`📚 API Documentation: http://localhost:${PORT}/api`);
-      console.log('📝 Press Ctrl+C to stop the server');
-    });
-  } catch (error) {
-    console.error('❌ Failed to start server:', error.message);
-    console.log('💡 Please check your configuration and try again');
-    process.exit(1);
-  }
-};
-
-startServer();
 
 export default app;

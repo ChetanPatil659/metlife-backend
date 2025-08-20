@@ -21,11 +21,13 @@ const userSchema = new mongoose.Schema(
     },
     buisnessCode: {
       type: Number,
+      default: null,
       minlength: [8, "Mobile Number must be at least 8 digits long"],
       maxlength: [8, "Mobile Number must be at most 8 digits long"],
     },
     employeeCode: {
       type: Number,
+      default: null,
       minlength: [7, "Mobile Number must be at least 7 digits long"],
       maxlength: [7, "Mobile Number must be at most 7 digits long"],
     },

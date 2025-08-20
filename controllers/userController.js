@@ -5,17 +5,18 @@ export async function addInfo(req, res) {
     console.log("========= /add-info =========")
     console.log("req.query", req.query);
     console.log("req.body", req.body);
-    const { ref, utm, utm_source, utm_campaign } = req.query;
-    const { name, city, employeeCode, businessCode, mobile, consent, type } =
+    const { ref, utm, utm_source, utm_campaign, type } = req.query;
+    const { name, city, employeeCode, businessCode, mobile, consent } =
       req.body;
     let user;
 
+    
     switch (ref) {
       case "agency":
         if (type == "businessCode") {
           user = await User.create({
             name,
-            buisnessCode: businessCode,
+            buisnessCode: parseInt(businessCode),
             mobile,
             consent,
             channel: ref,
