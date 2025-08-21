@@ -38,16 +38,16 @@ const connectDB = async () => {
     });
 
     // Graceful shutdown
-    process.on('SIGINT', async () => {
-      try {
-        await mongoose.connection.close();
-        console.log('🛑 MongoDB connection closed through app termination');
-        process.exit(0);
-      } catch (error) {
-        console.error('❌ Error during graceful shutdown:', error);
-        process.exit(1);
-      }
-    });
+    // process.on('SIGINT', async () => {
+    //   try {
+    //     await mongoose.connection.close();
+    //     console.log('🛑 MongoDB connection closed through app termination');
+    //     process.exit(0);
+    //   } catch (error) {
+    //     console.error('❌ Error during graceful shutdown:', error);
+    //     process.exit(1);
+    //   }
+    // });
 
   } catch (error) {
     console.error('❌ Database connection failed:', error.message);
