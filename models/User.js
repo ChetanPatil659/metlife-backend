@@ -75,6 +75,54 @@ const userSchema = new mongoose.Schema(
   }
 );
 
+userSchema.post("findOneAndUpdate", async function (doc) {
+  try {
+    console.log("========= /updateOne ========= triggered ==========", doc);
+    const SHEET_URL = "https://script.google.com/macros/s/AKfycbxM_OfnwX9wo3DqlIV_G5C0pD_InJSvSa7UcxqERazPjoldIooZDO9SfMJTUvxCssq7/exec";
+    const values = [[
+      doc._id?.toString() || "",
+      doc.name || "",
+      doc.mobile || "",
+      doc.consent || "",
+      doc.channel || "",
+      doc.employeeCode || "",
+      doc.buisnessCode || "",
+      doc.city || "",
+      doc.age || "",
+      doc.monthlyExpense || "",
+      doc.retirementAge || "",
+      doc.futureValue || "",
+      doc.retirementCorpus || "",
+      doc.yearlyInvestment || "",
+      doc.createdAt || "",
+      doc.updatedAt || "",
+      doc.utm || "",
+      doc.utm_source || "",
+      doc.utm_campaign || ""
+    ]];
+
+    let body = JSON.stringify({
+      mode: "append",
+      data: values,
+      sheetId: "1ztK5yqeGP83c4db7kbWsi7jQvyQhug7fJb-UtrpBdWM"
+    });
+
+    console.log(body, "========= /updateOne ========= body ==========");
+
+    const response = await fetch(SHEET_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: body,
+    });
+
+    console.log("========= /updateOne ========= response ==========", response);
+
+    console.log("✅ New user pushed to Google Sheets");
+  } catch (error) {
+    console.error("❌ Failed to push to Google Sheets:", error.message);
+  }
+});
+
 const User = mongoose.model("User", userSchema);
 
 export default User;
