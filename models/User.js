@@ -96,8 +96,8 @@ userSchema.post("findOneAndUpdate", async function (doc) {
       doc.yearlyInvestment || "",
       doc.createdAt || "",
       doc.updatedAt || "",
-      doc.utm || "",
-      doc.utm_source || "",
+      doc.utm || " ",
+      doc.utm_source || " ",
       doc.utm_campaign || ""
     ]];
 
