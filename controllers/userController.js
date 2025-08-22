@@ -43,7 +43,6 @@ export async function addInfo(req, res) {
           channel: ref,
           utm,
           utm_source,
-          utm_campaign,
         });
         break;
       case "jkb":
@@ -55,7 +54,6 @@ export async function addInfo(req, res) {
           channel: ref,
           utm,
           utm_source,
-          utm_campaign,
         });
         break;
       case "kbl":
@@ -67,7 +65,6 @@ export async function addInfo(req, res) {
           channel: ref,
           utm,
           utm_source,
-          utm_campaign,
         });
         break;
       case "psf":
@@ -79,7 +76,6 @@ export async function addInfo(req, res) {
           channel: ref,
           utm,
           utm_source,
-          utm_campaign,
         });
         break;
       case "social_media":
@@ -91,7 +87,6 @@ export async function addInfo(req, res) {
           channel: "social_media",
           utm,
           utm_source,
-          utm_campaign,
         });
         break;
       default:
@@ -103,7 +98,6 @@ export async function addInfo(req, res) {
           channel: "social_media",
           utm,
           utm_source,
-          utm_campaign,
         });
         break;
     }

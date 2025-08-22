@@ -67,7 +67,7 @@ const userSchema = new mongoose.Schema(
     },
     utm_campaign: {
       type: String,
-      default: "Fire Campaign",
+      default: "fire_aug_25",
     },
   },
   {
