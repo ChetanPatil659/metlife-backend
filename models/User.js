@@ -59,11 +59,11 @@ const userSchema = new mongoose.Schema(
     },
     utm: {
       type: String,
-      default: "",
+      default: " ",
     },
     utm_source: {
       type: String,
-      default: "",
+      default: " ",
     },
     utm_campaign: {
       type: String,
